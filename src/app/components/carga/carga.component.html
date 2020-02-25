@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-md-4 grey">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Files selection</mat-card-title>
+                <mat-card-subtitle>You can select more than one file to upload..</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content class=" well drop-zone file-over">
+                <img mat-card-image src="assets/drop-images.png">
+            </mat-card-content>
+            <mat-card-subtitle>Only .png, .jpg, .jpeg extensions are allowed.</mat-card-subtitle>
+        </mat-card>
+
+
+
+    </div>
+    <div class="col-md-8 grey">
+
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Files selected: </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="mt-4">
+
+                <table class="table table-hover">
+                    <thead class="primary">
+                        <tr>
+                            <th scope="col">File name</th>
+                            <th scope="col">Size</th>
+                            <th scope="col">Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="content">
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>
+                                <mat-progress-bar class="example-margin" color="accent" mode="buffer" value="50" bufferValue="60">
+                                </mat-progress-bar>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <mat-card-subtitle>Ready to publish!</mat-card-subtitle>
+
+            </mat-card-content>
+            <mat-card-actions class="text-center">
+                <button mat-stroked-button color="primary" class="mr-1"><span class="pr-1 pt-2"><mat-icon>cloud_upload</mat-icon> </span> UPLOAD</button>
+                <button mat-stroked-button color="accent"><span class="pr-1 pt-2"><mat-icon>refresh</mat-icon> </span> REFRESH</button>
+            </mat-card-actions>
+        </mat-card>
+
+    </div>
+</div>

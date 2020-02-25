@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@include mat-core();
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.main-container {
+    margin-top: 40px;
+}
+
+
+/* Drop Zone */
+
+.drop-zone {
+    border: dotted 3px lightgray;
+    opacity: 0.5;
+    color: #666;
+    text-align: center
+}
+
+.file-over {
+    border: dotted 3px dodgerblue;
+}
+
+.text-green {
+    color: green
+}
+
+.primary {
+    color: #3f51b5 !important;
+}
+
+.accent {
+    color: #ff4081 !important;
+}
+
+tr {
+    text-align: center;
+}
