@@ -1,3 +1,12 @@
-<p>
-  fotos works!
-</p>
+<div class="card-columns">
+    <div class="card animated pulse" *ngFor="let item of items | async">
+        <img [src]="item.url" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h6 class="card-title text-muted">{{ item.nombre }}</h6>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center mt-4">
+    <button mat-stroked-button [routerLink]="['/carga']" color="accent"><span class="pt-2"><mat-icon>cloud_upload</mat-icon> </span> Upload new images</button>
+</div>

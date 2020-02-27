@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'fotosfirebase';
+
+  constructor(){
+    Swal.fire({
+       title: 'Hey there!',
+       text: 'This app has only ilustrative proposes, to show the usage of different technologies.',
+       icon: 'info',
+       confirmButtonText: 'Ok, lets see!'
+    });
+  }
+
 }

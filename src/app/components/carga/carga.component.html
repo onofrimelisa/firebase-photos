@@ -1,27 +1,47 @@
 <div class="row">
-    <div class="col-md-4 grey">
+    <div class="col-md-4 animated fadeIn">
         <mat-card class="example-card">
-            <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>Files selection</mat-card-title>
-                <mat-card-subtitle>You can select more than one file to upload..</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content class=" well drop-zone file-over">
-                <img mat-card-image src="assets/drop-images.png">
-            </mat-card-content>
-            <mat-card-subtitle>Only .png, .jpg, .jpeg extensions are allowed.</mat-card-subtitle>
+            <div class="row">
+                <div class="col-2">
+                    <mat-icon style="font-size: 40px">add_a_photo</mat-icon>
+
+                </div>
+                <div class="col-10 pt-3">
+                    <h5>Files selection: drag and drop</h5>
+
+                </div>
+            </div>
+
+            <mat-card-subtitle>You can select more than one file to upload. Then, they will be seen at the gallery.</mat-card-subtitle>
+            <div appNgDropFiles [archivos]="archivos" (mouseSobre)="sobreDrop = $event">
+
+                <mat-card-content class=" well drop-zone animated pulse infinite" [ngClass]="{'file-over': sobreDrop}">
+                    <img mat-card-image src="assets/drop-images.png">
+                </mat-card-content>
+            </div>
+
+
+            <mat-card-subtitle>Only images are allowed.</mat-card-subtitle>
         </mat-card>
 
 
 
     </div>
-    <div class="col-md-8 grey">
+    <div class="col-md-8 animated fadeIn" style="display: grid;">
 
         <mat-card class="example-card">
-            <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>Files selected: </mat-card-title>
-            </mat-card-header>
+            <div class="row">
+                <div class="col-1">
+                    <mat-icon style="font-size: 50px">burst_mode</mat-icon>
+
+                </div>
+                <div class="col-11 pt-3">
+                    <h5>Selected files: </h5>
+
+                </div>
+            </div>
+            <mat-card-subtitle>When you finish your file selection, just press on the 'Upload' button to upload them.</mat-card-subtitle>
+
             <mat-card-content class="mt-4">
 
                 <table class="table table-hover">
@@ -33,25 +53,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="content">
-                            <td>Mark</td>
-                            <td>Otto</td>
+                        <tr *ngFor="let a of archivos" class="content">
+                            <td [ngClass]="{'text-green': a.progreso >= 100}">{{ a.nombreArchivo }}</td>
+                            <td>{{ a.archivo.size / 1024 / 1024 | number: '.2-2'}} MB</td>
                             <td>
-                                <mat-progress-bar class="example-margin" color="accent" mode="buffer" value="50" bufferValue="60">
+                                <mat-progress-bar class="example-margin" color="accent" mode="buffer" [value]="a.progreso" [bufferValue]="a.progreso + 5">
                                 </mat-progress-bar>
                             </td>
                         </tr>
                     </tbody>
                 </table>
 
-                <mat-card-subtitle>Ready to publish!</mat-card-subtitle>
-
             </mat-card-content>
             <mat-card-actions class="text-center">
-                <button mat-stroked-button color="primary" class="mr-1"><span class="pr-1 pt-2"><mat-icon>cloud_upload</mat-icon> </span> UPLOAD</button>
-                <button mat-stroked-button color="accent"><span class="pr-1 pt-2"><mat-icon>refresh</mat-icon> </span> REFRESH</button>
+                <button mat-stroked-button color="primary" [disabled]="archivos.length == 0" (click)="cargarImagenes()" class="mr-1"><span class="pr-1 pt-2"><mat-icon>cloud_upload</mat-icon> </span> UPLOAD</button>
+                <button mat-stroked-button color="accent" (click)="limpiarArchivos()"><span class="pr-1 pt-2"><mat-icon>refresh</mat-icon> </span> REFRESH</button>
             </mat-card-actions>
         </mat-card>
 
     </div>
+</div>
+
+<div class="container text-center m-4">
+    <button mat-stroked-button [routerLink]="['/fotos']" color="accent"><span class="pt-2"><mat-icon>view_comfy</mat-icon> </span> Back to gallery</button>
 </div>
