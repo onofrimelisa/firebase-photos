@@ -11,7 +11,7 @@ export class AppComponent {
   constructor(){
     Swal.fire({
        title: 'Hey there!',
-       text: 'This app has only ilustrative proposes, to show the usage of different technologies.',
+       text: 'This app has only illustrative purposes, to show the usage of different technologies.',
        icon: 'info',
        confirmButtonText: 'Ok, lets see!'
     });
